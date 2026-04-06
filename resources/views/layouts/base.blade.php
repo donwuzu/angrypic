@@ -13,13 +13,8 @@
     <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
 
-        @php
-        $manifest = json_decode(file_get_contents(public_path('build/manifest.json')), true);
-        @endphp
-
-        <link rel="stylesheet" href="{{ asset('build/' . $manifest['resources/css/app.css']['file']) }}">
-        <script src="{{ asset('build/' . $manifest['resources/js/app.js']['file']) }}"></script>
-
+        <link rel="stylesheet" href="{{ asset('build/assets/app-BIQTlGma.css') }}">
+        <script src="{{ asset('build/assets/app-Bf4POITK.js') }}"></script>
 
     <script>
     window.APP_PRICING = @json(config('pricing'));
