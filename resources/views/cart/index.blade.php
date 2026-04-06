@@ -1,0 +1,472 @@
+@extends('layouts.base')
+
+@section('content')
+<main class="w-full max-w-6xl mx-auto py-16 px-4 min-h-screen">
+  <!-- Hero Section Added -->
+  <section class="bg-gradient-to-r from-green-600 to-green-800 text-white py-8 md:py-12 mb-8 rounded-xl">
+    <div class="container mx-auto px-4 text-center">
+     
+    </div>
+  </section>
+
+<div class="bg-white rounded-xl shadow-lg overflow-hidden p-4 sm:p-6 lg:p-8">
+
+
+
+<!-- Premium Payment Header -->
+<section class="relative overflow-hidden bg-gradient-to-br from-green-700 via-green-600 to-green-700">
+  <!-- subtle background accent -->
+  <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top_left,white,transparent_40%)]"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+
+      <!-- Left: Title + Copy -->
+      <div class="max-w-xl">
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
+          Order Details
+        </h2>
+        <p class="mt-2 text-green-100 text-base leading-relaxed">
+          Confirm your items and pay securely using trusted mobile money services.
+        </p>
+      </div>
+
+      <!-- Right: Payment Brands -->
+      <div class="w-full lg:w-auto">
+        <p class="text-xs font-semibold uppercase tracking-widest text-green-200 mb-3 lg:text-right">
+          Supported Payments
+        </p>
+
+        <div class="flex items-center gap-4">
+          <!-- Airtel Card -->
+          <div
+            class="group bg-white/95 rounded-2xl px-6 py-4 shadow-lg ring-1 ring-black/5
+                   transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+            <img
+              src="/images/airtel.png"
+              alt="Airtel Money"
+              class="h-9 w-auto mx-auto object-contain"
+            />
+            <p class="mt-2 text-xs font-semibold text-gray-600 text-center">
+              Airtel Money
+            </p>
+          </div>
+
+          <!-- MTN Card -->
+          <div
+            class="group bg-white/95 rounded-2xl px-6 py-4 shadow-lg ring-1 ring-black/5
+                   transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+            <img
+              src="/images/mtn-mobile.png"
+              alt="MTN Mobile Money"
+              class="h-9 w-auto mx-auto object-contain"
+            />
+            <p class="mt-2 text-xs font-semibold text-gray-600 text-center">
+              MTN MoMo
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full">
+
+  <!-- Cart Items - Left Column -->
+  <div class="w-full bg-gray-50 rounded-lg shadow-sm">
+
+    <form id="cart-order-form" method="POST" action="{{ route('cart.store') }}" class="space-y-6">
+      @csrf
+
+      <input type="hidden" name="currency" id="currencyInput">
+
+  <div class=" space-y-6">
+    <!-- Portraits Card - Improved -->
+<div class="w-full bg-white rounded-xl shadow-md overflow-hidden border border-gray-200">
+    <div class="bg-green-600 text-white px-4 sm:px-6 py-3">
+        <div class="flex items-center">
+            <i class="fas fa-portrait text-white mr-2 sm:mr-3 text-lg"></i>
+            <h3 class="text-base sm:text-lg font-semibold">Portraits</h3>
+        </div>
+    </div>
+    
+    <div class="p-4 sm:p-6">
+        <div class="overflow-x-auto">
+            <table class="w-full min-w-max md:w-full">
+                <thead>
+                    <tr class="bg-green-50 text-green-800 text-sm sm:text-base">
+                        <th class="text-left py-2 px-2 sm:px-4 w-[40%]">Portrait</th>
+                        <th class="text-center py-2 px-1 w-[15%]">Qty</th>
+                        <th class="text-right py-2 px-2 sm:px-3 w-[15%]">Price</th>
+                        <th class="text-right py-2 px-2 sm:px-3 w-[15%]">Subtotal</th>
+                        <th class="text-right py-2 px-2 sm:px-4 w-[15%]"></th>
+                    </tr>
+                </thead>
+                <tbody id="checkout-summary-body" class="divide-y divide-green-100">
+                    <!-- Empty State -->
+                    <tr>
+                        <td colspan="5" class="text-center text-gray-500 py-6 sm:py-8">
+                            <div class="flex flex-col items-center justify-center">
+                                <i class="fas fa-box-open text-3xl sm:text-4xl text-gray-300 mb-2 sm:mb-3"></i>
+                                <p class="text-sm sm:text-base">Your portrait cart is empty</p>
+                                <a href="" 
+                                   class="mt-3 text-sm text-green-600 hover:text-green-800 font-medium flex items-center">
+                                    <i class="fas fa-arrow-left mr-2"></i> Browse Portraits
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+   <!-- Clocks Card - Improved -->
+<div class="w-full bg-white rounded-xl shadow-md overflow-hidden border border-gray-200">
+    <div class="bg-green-600 text-white px-4 sm:px-6 py-3">
+        <div class="flex items-center">
+            <i class="fas fa-clock text-white mr-2 sm:mr-3 text-lg"></i>
+            <h3 class="text-base sm:text-lg font-semibold">Clocks</h3>
+           
+        </div>
+    </div>
+    
+    <div class="p-4 sm:p-6">
+        <div class="overflow-x-auto">
+            <table class="w-full min-w-max md:w-full">
+                <thead>
+                    <tr class="bg-green-50 text-green-800 text-sm sm:text-base">
+                        <th class="text-left py-2 px-2 sm:px-4">Clock</th>
+                        <th class="text-center py-2 px-1">Qty</th>
+                        <th class="text-right py-2 px-2 sm:px-3">Price</th>
+                        <th class="text-right py-2 px-2 sm:px-3">Subtotal</th>
+                        <th class="text-right py-2 px-2 sm:px-4">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="checkout-clocks-body" class="divide-y divide-green-100">
+                    <!-- Empty State -->
+                    <tr>
+                        <td colspan="5" class="text-center text-gray-500 py-6 sm:py-8">
+                            <div class="flex flex-col items-center justify-center">
+                                <i class="fas fa-clock text-3xl sm:text-4xl text-gray-300 mb-2 sm:mb-3"></i>
+                                <p class="text-sm sm:text-base mb-2">No clocks in your cart</p>
+                                <a href="" 
+                                   class="text-sm text-green-600 hover:text-green-800 font-medium flex items-center">
+                                    <i class="fas fa-plus-circle mr-2"></i> Add Clocks
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+
+      <input type="hidden" name="portraitSelections" id="portraitSelectionsInput">
+      <input type="hidden" name="clockSelections" id="clockSelectionsInput">
+   
+  </div>
+
+<!-- Summary & Customer Info - Right Column -->
+  <div class="w-full">
+    <div class="sticky top-4 space-y-4 sm:space-y-6">
+        <!-- Customer Information Card -->
+        <div class="bg-white rounded-xl shadow-sm p-4 sm:p-6 border border-gray-200">
+            <h3 class="text-lg font-semibold text-gray-800 border-b pb-3 mb-4 flex items-center">
+                <i class="fas fa-user text-green-600 mr-2 sm:mr-3"></i>
+                Your Details
+            </h3>
+            <div class="space-y-3 sm:space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1 sm:mb-2" for="name">Full Name *</label>
+                    <input class="w-full border border-gray-300 rounded-lg px-3 sm:px-4 py-2 sm:py-3 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition" 
+                           required name="name" id="name" type="text" >
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1 sm:mb-2" for="phone">Phone Number *</label>
+                    <input class="w-full border border-gray-300 rounded-lg px-3 sm:px-4 py-2 sm:py-3 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition" 
+                           required name="phone" id="phone" type="tel" >
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1 sm:mb-2" for="location">Delivery Location *</label>
+                    <input class="w-full border border-gray-300 rounded-lg px-3 sm:px-4 py-2 sm:py-3 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition" 
+                           required name="location" id="location" type="text" >
+                </div>
+            </div>
+        </div>
+
+        <!-- Order Summary Card -->
+        <div class="bg-white rounded-xl shadow-sm p-4 sm:p-6 border border-gray-200">
+            <h3 class="text-lg font-semibold text-gray-800 border-b pb-3 mb-4 flex items-center">
+                <i class="fas fa-receipt text-green-600 mr-2 sm:mr-3"></i>
+                Order Summary
+            </h3>
+
+            <div class="space-y-2 sm:space-y-3 mb-3 sm:mb-4">
+                <div class="flex justify-between text-gray-700 text-sm sm:text-base">
+                    <span>Portraits Subtotal:</span>
+                    <span id="summary-portraits-total" class="font-medium">KSh 0</span>
+                </div>
+                <div class="flex justify-between text-gray-700 text-sm sm:text-base">
+                    <span>Clocks Subtotal:</span>
+                    <span id="summary-clocks-total" class="font-medium">KSh 0</span>
+                </div>
+                <div class="flex justify-between text-gray-700 text-sm sm:text-base">
+                    <span>Delivery Fee:</span>
+                    <span id="delivery-fee" class="font-medium">KSh 0</span>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-200 pt-3 sm:pt-4 mb-4 sm:mb-5">
+                <div class="flex justify-between items-center">
+                    <span class="font-bold text-gray-800 text-base sm:text-lg">Total Amount:</span>
+                    <span id="total" class="text-lg sm:text-xl font-bold text-green-600">KSh 0</span>
+                </div>
+            </div>
+
+            <button type="submit" form="cart-order-form" 
+                    class="w-full px-4 sm:px-6 py-2 sm:py-3 bg-green-600 hover:bg-green-700 text-white font-bold rounded-lg transition flex items-center justify-center gap-2 sm:gap-3">
+                <i class="fas fa-check-circle"></i>
+                <span>Confirm Order</span>
+            </button>
+            
+            <!-- Added security notice -->
+            <p class="text-xs text-gray-500 mt-3 text-center">
+                <i class="fas fa-lock mr-1"></i> Your information is secure and will not be shared
+            </p>
+        </div>
+    </div>
+</div>
+ </form> <!-- Form closing tag now in correct position -->
+
+</div>
+  </div>
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* ================================
+     1️⃣ SAFE CONFIG LOADING
+  ================================= */
+
+  if (!window.APP_PRICING || !window.APP_PRICING.currencies) {
+    console.error('Pricing configuration missing.');
+    return;
+  }
+
+  const PRICING = window.APP_PRICING.currencies;
+  const BULK_THRESHOLD = window.APP_PRICING.bulk_threshold || 5;
+
+  let currency = localStorage.getItem('preferredCurrency') || 'KES';
+
+  if (!PRICING[currency]) {
+    console.warn('Invalid currency detected. Falling back to KES.');
+    currency = 'KES';
+  }
+
+  const cfg = PRICING[currency];
+
+  document.getElementById('currencyInput').value = currency;
+
+
+  /* ================================
+     2️⃣ LOAD CART DATA
+  ================================= */
+
+  const portraitSelections = JSON.parse(localStorage.getItem('portraitSelections') || '{}');
+  const clockSelections = JSON.parse(localStorage.getItem('clockSelections') || '{}');
+
+  const portraitBody = document.getElementById('checkout-summary-body');
+  const clockBody = document.getElementById('checkout-clocks-body');
+
+  const portraitInput = document.getElementById('portraitSelectionsInput');
+  const clockInput = document.getElementById('clockSelectionsInput');
+
+  const subtotalEl = document.getElementById('summary-portraits-total');
+  const clocksSubtotalEl = document.getElementById('summary-clocks-total');
+  const deliveryFeeEl = document.getElementById('delivery-fee');
+  const totalEl = document.getElementById('total');
+
+  portraitBody.innerHTML = '';
+  clockBody.innerHTML = '';
+
+
+  /* ================================
+     3️⃣ PORTRAITS CALCULATION
+  ================================= */
+
+  const portraitTotalUnits = Object.values(portraitSelections)
+    .reduce((sum, qty) => sum + parseInt(qty, 10), 0);
+
+  const portraitUnitPrice = portraitTotalUnits >= BULK_THRESHOLD
+    ? cfg.portraits.tier2
+    : cfg.portraits.tier1;
+
+  let portraitSubtotal = 0;
+
+  for (const [id, qtyStr] of Object.entries(portraitSelections)) {
+    const qty = parseInt(qtyStr, 10);
+
+    if (qty > 0) {
+      const rowSub = qty * portraitUnitPrice;
+      portraitSubtotal += rowSub;
+
+      const row = `
+<tr class="hover:bg-green-50 transition-colors border-b border-green-100">
+  <td class="px-3 py-2 text-left">
+    <div class="text-gray-800 font-medium text-sm">Portrait #${id}</div>
+  </td>
+  <td class="px-2 py-2 text-center">
+    <span class="bg-gray-100 rounded-full px-3 py-1 text-xs font-semibold">${qty}</span>
+  </td>
+  <td class="px-3 py-2 text-right">
+    ${cfg.symbol} ${portraitUnitPrice.toLocaleString()}
+  </td>
+  <td class="px-3 py-2 text-right font-semibold">
+    ${cfg.symbol} ${rowSub.toLocaleString()}
+  </td>
+  <td class="px-3 py-2 text-right">
+    <button type="button"
+      data-remove-portrait="${id}"
+      class="remove-portrait-btn text-red-600 hover:text-red-800 text-sm">
+      Remove
+    </button>
+  </td>
+</tr>
+`;
+      portraitBody.insertAdjacentHTML('beforeend', row);
+    }
+  }
+
+  if (portraitSubtotal === 0) {
+    portraitBody.innerHTML =
+      '<tr><td colspan="5" class="text-center py-6 text-gray-500">Your portrait cart is empty.</td></tr>';
+  }
+
+
+  /* ================================
+     4️⃣ CLOCKS CALCULATION
+  ================================= */
+
+  const clockTotalUnits = Object.values(clockSelections)
+    .reduce((sum, qty) => sum + parseInt(qty, 10), 0);
+
+  const clockUnitPrice = clockTotalUnits >= BULK_THRESHOLD
+    ? cfg.clocks.tier2
+    : cfg.clocks.tier1;
+
+  let clockSubtotal = 0;
+
+  for (const [id, qtyStr] of Object.entries(clockSelections)) {
+    const qty = parseInt(qtyStr, 10);
+
+    if (qty > 0) {
+      const rowSub = qty * clockUnitPrice;
+      clockSubtotal += rowSub;
+
+      const row = `
+<tr class="hover:bg-green-50 transition-colors border-b border-green-100">
+  <td class="px-3 py-2 text-left">
+    <div class="text-gray-800 font-medium text-sm">Clock #${id}</div>
+  </td>
+  <td class="px-2 py-2 text-center">
+    <span class="bg-gray-100 rounded-full px-3 py-1 text-xs font-semibold">${qty}</span>
+  </td>
+  <td class="px-3 py-2 text-right">
+    ${cfg.symbol} ${clockUnitPrice.toLocaleString()}
+  </td>
+  <td class="px-3 py-2 text-right font-semibold">
+    ${cfg.symbol} ${rowSub.toLocaleString()}
+  </td>
+  <td class="px-3 py-2 text-right">
+    <button type="button"
+      data-remove-clock="${id}"
+      class="remove-clock-btn text-red-600 hover:text-red-800 text-sm">
+      Remove
+    </button>
+  </td>
+</tr>
+`;
+      clockBody.insertAdjacentHTML('beforeend', row);
+    }
+  }
+
+  if (clockSubtotal === 0) {
+    clockBody.innerHTML =
+      '<tr><td colspan="5" class="text-center py-6 text-gray-500">Your clock cart is empty.</td></tr>';
+  }
+
+
+  /* ================================
+     5️⃣ TOTALS
+  ================================= */
+
+  const totalUnits = portraitTotalUnits + clockTotalUnits;
+  const deliveryFee = totalUnits > 0 ? cfg.delivery : 0;
+
+  const fullSubtotal = portraitSubtotal + clockSubtotal;
+  const finalTotal = fullSubtotal + deliveryFee;
+
+  subtotalEl.textContent = `${cfg.symbol} ${portraitSubtotal.toLocaleString()}`;
+  clocksSubtotalEl.textContent = `${cfg.symbol} ${clockSubtotal.toLocaleString()}`;
+  deliveryFeeEl.textContent = `${cfg.symbol} ${deliveryFee.toLocaleString()}`;
+  totalEl.textContent = `${cfg.symbol} ${finalTotal.toLocaleString()}`;
+
+
+  /* ================================
+     6️⃣ PASS DATA TO BACKEND
+  ================================= */
+
+  portraitInput.value = JSON.stringify(portraitSelections);
+  clockInput.value = JSON.stringify(clockSelections);
+
+
+  /* ================================
+     7️⃣ REMOVE BUTTON HANDLING
+  ================================= */
+
+  document.addEventListener('click', function (e) {
+
+    const portraitBtn = e.target.closest('.remove-portrait-btn');
+    if (portraitBtn) {
+      const id = portraitBtn.dataset.removePortrait;
+      removeItem('portraitSelections', id);
+    }
+
+    const clockBtn = e.target.closest('.remove-clock-btn');
+    if (clockBtn) {
+      const id = clockBtn.dataset.removeClock;
+      removeItem('clockSelections', id);
+    }
+
+  });
+
+});
+
+
+/* ================================
+   REUSABLE REMOVE FUNCTION
+================================= */
+
+function removeItem(storageKey, id) {
+  const selections = JSON.parse(localStorage.getItem(storageKey) || '{}');
+  delete selections[id];
+  localStorage.setItem(storageKey, JSON.stringify(selections));
+  location.reload(); // safe reload to re-render
+}
+</script>
+
+
+@endsection
+
